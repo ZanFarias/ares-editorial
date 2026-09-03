@@ -192,6 +192,44 @@
   .metric .n{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--gold); }
   .metric .l{ font-size:13.5px; color:var(--text); margin-top:4px; }
 
+  /* ---- Monthly numbers ---- */
+  .month-callout{
+    display:flex; gap:16px; margin-bottom:26px;
+    background:linear-gradient(135deg, rgba(200,160,92,.12), rgba(200,160,92,.03));
+    border:1px solid rgba(200,160,92,.35);
+    border-radius:14px; padding:20px 22px;
+  }
+  .month-callout .ic{
+    flex:none; width:26px; height:26px; border-radius:99px;
+    background:var(--gold); color:var(--bg);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; font-weight:600; font-size:14px;
+  }
+  .month-callout .body b{ color:var(--text); font-weight:700; }
+  .month-callout .body p{ font-size:14.5px; color:var(--text-muted); margin-top:5px; }
+
+  .month-scroll{ overflow-x:auto; margin-bottom:26px; }
+  table.months{ width:100%; border-collapse:collapse; min-width:720px; }
+  table.months th{
+    text-align:left; font-family:'JetBrains Mono', monospace; font-size:10.5px;
+    text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint);
+    font-weight:600; padding:8px 12px; border-bottom:1px solid var(--border);
+  }
+  table.months td{
+    padding:11px 12px; border-bottom:1px solid var(--border-soft); font-size:13.5px;
+    font-family:'JetBrains Mono', monospace; font-variant-numeric:tabular-nums;
+  }
+  table.months td.m-name{ font-family:'Fraunces', serif; font-style:italic; color:var(--gold-bright); font-size:15px; }
+  table.months tr:last-child td{ border-bottom:none; }
+  table.months tr.partial td{ color:var(--text-faint); }
+
+  .bar-chart{ display:flex; flex-direction:column; gap:10px; }
+  .bar-row{ display:grid; grid-template-columns:70px 1fr 64px; align-items:center; gap:12px; }
+  .bar-row .m-label{ font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--text-muted); }
+  .bar-track{ height:9px; background:var(--surface-2); border-radius:99px; overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:99px; background:linear-gradient(90deg, var(--wine), var(--gold)); }
+  .bar-val{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text); text-align:right; }
+
   footer{ padding:44px 0 70px; }
   footer p{ font-size:12.5px; color:var(--text-faint); }
   footer .fname{ font-family:'Fraunces', serif; color:var(--gold-bright); font-style:italic; }
@@ -390,6 +428,51 @@
       <div class="metric"><div class="n">05</div><div class="l">Cliques no link da bio (reservas)</div></div>
       <div class="metric"><div class="n">06</div><div class="l">Menções/UGC com a marca</div></div>
     </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Números de 2026, mês a mês</h2>
+      <p>Puxado direto da API do Instagram (@overtheares), post a post, com data e engajamento reais — não é projeção.</p>
+    </div>
+
+    <div class="month-callout">
+      <span class="ic">i</span>
+      <div class="body">
+        <b>O padrão do próprio ano já aponta pra onde vai a estratégia acima:</b>
+        <p>Abril foi o mês com mais Reels publicados (8, o único mês 100% Reels) e teve a menor média de curtidas do ano (51,2/post). Julho, o oposto — só 3 posts, todos carrossel, e a segunda maior média (181/post). Reels sozinho não é sinônimo de alcance melhor: o que rendeu mais neste perfil foi variar formato, não empilhar Reels.</p>
+      </div>
+    </div>
+
+    <div class="month-scroll">
+      <table class="months">
+        <thead><tr><th>Mês</th><th>Posts</th><th>Reels</th><th>Carrossel</th><th>Curtidas totais</th><th>Média/post</th><th>Comentários</th></tr></thead>
+        <tbody>
+          <tr><td class="m-name">Janeiro</td><td>4</td><td>1</td><td>3</td><td>609</td><td>152,2</td><td>66</td></tr>
+          <tr><td class="m-name">Fevereiro</td><td>2</td><td>1</td><td>1</td><td>171</td><td>85,5</td><td>9</td></tr>
+          <tr><td class="m-name">Março</td><td>6</td><td>5</td><td>1</td><td>635</td><td>105,8</td><td>77</td></tr>
+          <tr><td class="m-name">Abril</td><td>8</td><td>8</td><td>0</td><td>410</td><td>51,2</td><td>49</td></tr>
+          <tr><td class="m-name">Maio</td><td>5</td><td>5</td><td>0</td><td>317</td><td>63,4</td><td>36</td></tr>
+          <tr><td class="m-name">Junho</td><td>3</td><td>3</td><td>0</td><td>273</td><td>91,0</td><td>29</td></tr>
+          <tr><td class="m-name">Julho</td><td>3</td><td>0</td><td>3</td><td>543</td><td>181,0</td><td>30</td></tr>
+          <tr><td class="m-name">Agosto</td><td>6</td><td>4</td><td>2</td><td>602</td><td>100,3</td><td>39</td></tr>
+          <tr class="partial"><td class="m-name">Setembro*</td><td>1</td><td>0</td><td>1</td><td>51</td><td>51,0</td><td>10</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bar-chart">
+      <div class="bar-row"><span class="m-label">Jan</span><div class="bar-track"><div class="bar-fill" style="width:84.1%"></div></div><span class="bar-val">152,2</span></div>
+      <div class="bar-row"><span class="m-label">Fev</span><div class="bar-track"><div class="bar-fill" style="width:47.2%"></div></div><span class="bar-val">85,5</span></div>
+      <div class="bar-row"><span class="m-label">Mar</span><div class="bar-track"><div class="bar-fill" style="width:58.5%"></div></div><span class="bar-val">105,8</span></div>
+      <div class="bar-row"><span class="m-label">Abr</span><div class="bar-track"><div class="bar-fill" style="width:28.3%"></div></div><span class="bar-val">51,2</span></div>
+      <div class="bar-row"><span class="m-label">Mai</span><div class="bar-track"><div class="bar-fill" style="width:35.0%"></div></div><span class="bar-val">63,4</span></div>
+      <div class="bar-row"><span class="m-label">Jun</span><div class="bar-track"><div class="bar-fill" style="width:50.3%"></div></div><span class="bar-val">91,0</span></div>
+      <div class="bar-row"><span class="m-label">Jul</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">181,0</span></div>
+      <div class="bar-row"><span class="m-label">Ago</span><div class="bar-track"><div class="bar-fill" style="width:55.4%"></div></div><span class="bar-val">100,3</span></div>
+      <div class="bar-row"><span class="m-label">Set*</span><div class="bar-track"><div class="bar-fill" style="width:28.2%"></div></div><span class="bar-val">51,0</span></div>
+    </div>
+    <p style="font-size:12px; color:var(--text-faint); margin-top:14px;">*Setembro parcial — só 3 dias de mês, 1 post publicado até a data. Barras escaladas pela média de curtidas por post, mês a mês.</p>
   </section>
 
   <footer>
