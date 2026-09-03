@@ -152,6 +152,29 @@
   .case-body p{ font-size:14.5px; color:var(--text-muted); margin-top:4px; }
 
   /* ---- Calendar ---- */
+  .cal-header{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
+    flex-wrap:wrap; margin-bottom:18px;
+  }
+  .cal-arrow{
+    flex:none; display:inline-flex; align-items:center; gap:8px;
+    background:var(--gold-soft); border:1px solid var(--border);
+    color:var(--gold-bright); font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    padding:10px 14px; border-radius:99px; cursor:pointer;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .cal-arrow:hover{ background:#3a2c1a; }
+  .cal-arrow:active{ transform:translateX(2px); }
+  .cal-dots{ display:flex; gap:8px; margin-bottom:28px; }
+  .cal-dots .dot{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.05em;
+    text-transform:uppercase; color:var(--text-faint);
+    background:transparent; border:1px solid var(--border); border-radius:99px;
+    padding:5px 12px; cursor:pointer; transition:all .15s ease;
+  }
+  .cal-dots .dot:hover{ color:var(--text-muted); border-color:var(--text-faint); }
+  .cal-dots .dot.active{ color:var(--bg); background:var(--gold); border-color:var(--gold); }
   .week-block{ margin-bottom:30px; }
   .week-block:last-child{ margin-bottom:0; }
   .week-title{
@@ -247,8 +270,8 @@
     <h1 class="title">Estratégia de conteúdo pra <em>setembro</em></h1>
     <p class="hero-sub">Calendário editorial mesclando carrossel e reels, construído em cima do que já funciona no perfil (LÉXICO, ARES SESSIONS, WHO'S COOKING) e de padrões comprovados de alcance no segmento de coquetelaria de alto padrão.</p>
     <div class="hero-meta">
-      <div><span class="v">20 posts</span><span class="l">4 semanas</span></div>
-      <div><span class="v">11 reels / 9 carrosséis</span><span class="l">mix de formato</span></div>
+      <div><span class="v">80 posts</span><span class="l">set → dez, 4 meses</span></div>
+      <div><span class="v">47 reels / 33 carrosséis</span><span class="l">mix de formato</span></div>
       <div><span class="v">@overtheares</span><span class="l">19,9 mil seguidores</span></div>
     </div>
   </header>
@@ -345,11 +368,24 @@
   </section>
 
   <section>
-    <div class="section-head">
-      <h2>Calendário editorial — setembro</h2>
-      <p>4 semanas, ritmo de 5 posts/semana (hoje o perfil publica ~2–3x). Cada linha mistura pilar existente com os formatos novos, sempre balanceando alcance (reels) com aprofundamento (carrossel).</p>
+    <div class="cal-header">
+      <div class="section-head" style="margin-bottom:0;">
+        <h2>Calendário editorial — <span id="cal-month-name">setembro</span></h2>
+        <p id="cal-month-desc">4 semanas, ritmo de 5 posts/semana (hoje o perfil publica ~2–3x). Cada linha mistura pilar existente com os formatos novos, sempre balanceando alcance (reels) com aprofundamento (carrossel).</p>
+      </div>
+      <button id="cal-arrow" class="cal-arrow" type="button" aria-label="Ver planejamento do próximo mês">
+        <span>Próximo mês</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8M8.5 4.5 12 8l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="cal-dots" id="cal-dots">
+      <button type="button" class="dot active" data-month="set">Set</button>
+      <button type="button" class="dot" data-month="out">Out</button>
+      <button type="button" class="dot" data-month="nov">Nov</button>
+      <button type="button" class="dot" data-month="dez">Dez</button>
     </div>
 
+    <div class="month-panel" data-month="set">
     <div class="week-block">
       <div class="week-title">Semana 1</div>
       <div class="cal-scroll">
@@ -413,6 +449,205 @@
         </table>
       </div>
     </div>
+    </div><!-- /month-panel set -->
+
+    <div class="month-panel" data-month="out" style="display:none;">
+    <div class="week-block">
+      <div class="week-title">Semana 1</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Abertura do mês</span></td><td>"Outubro tem novidade" — teaser sem revelar, plantando a expectativa do aniversário</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">LÉXICO</span></td><td>Novo drink do mês — ficha técnica visual</td><td class="goal-cell">Salvamento</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">POV Balcão</span></td><td>Macro/ASMR do preparo do drink da semana</td><td class="goal-cell">Alcance / retenção</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Teaser do line-up da noite</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Ares Sessions</span></td><td>Recap fotográfico da pista</td><td class="goal-cell">Compartilhamento</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 2 — contagem regressiva</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Guia LÉXICO</span></td><td>Harmonização de outono/início de festa — conteúdo utilidade</td><td class="goal-cell">Salvamento</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Contagem regressiva</span></td><td>"Faltam alguns dias" — bastidor da preparação do aniversário, sem spoiler do line-up</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Who's Cooking</span></td><td>Teaser do chef convidado da edição</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Who's Cooking</span></td><td>Recap da edição — prato a prato</td><td class="goal-cell">Compartilhamento</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">UGC / comunidade</span></td><td>Compilado de clientes contando o que o Ares representa pra eles</td><td class="goal-cell">Comunidade</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 3 — 3º aniversário (14/10)</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">3 anos de Ares</span></td><td>Retrospectiva rápida em vídeo — highlights de fotos/vídeos do ano em 15s</td><td class="goal-cell">Alcance / compartilhamento</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">3 anos em números</span></td><td>O que já rolou — Sessions, Who's Cooking, LÉXICO, guest bartenders</td><td class="goal-cell">Prova social</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Festa de aniversário</span></td><td>Teaser do line-up especial da noite</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Festa de aniversário</span></td><td>Aftermovie da noite de comemoração</td><td class="goal-cell">Compartilhamento</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Agradecimento</span></td><td>Recap fotográfico da festa + agradecimento a quem acompanha há 3 anos</td><td class="goal-cell">Comunidade</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 4</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">LÉXICO</span></td><td>Drink especial pós-aniversário — reveal rápido</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Diferencial</span></td><td>Bastidor do estúdio sonoro — o que sustenta as Sessions</td><td class="goal-cell">Diferenciação</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Teaser do line-up</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Aftermovie da noite</td><td class="goal-cell">Compartilhamento</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Fechamento do mês</span></td><td>"O que rolou em outubro" — recap + prévia de novembro</td><td class="goal-cell">Retenção</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div><!-- /month-panel out -->
+
+    <div class="month-panel" data-month="nov" style="display:none;">
+    <div class="week-block">
+      <div class="week-title">Semana 1</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Abertura do mês</span></td><td>Teaser do que vem em novembro</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">LÉXICO</span></td><td>Novo drink do mês — ficha técnica visual</td><td class="goal-cell">Salvamento</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">POV Balcão</span></td><td>Macro/ASMR do preparo</td><td class="goal-cell">Alcance / retenção</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Teaser do line-up da noite</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Ares Sessions</span></td><td>Recap fotográfico da pista</td><td class="goal-cell">Compartilhamento</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 2</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Guia LÉXICO</span></td><td>Drinks mais leves/refrescantes — início do calor</td><td class="goal-cell">Salvamento</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Who's Cooking</span></td><td>Teaser do chef convidado da edição</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">POV Balcão</span></td><td>"Pergunta que mais recebemos" — bartender responde direto</td><td class="goal-cell">Alcance / personalidade</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Who's Cooking</span></td><td>Recap da edição — bastidor de cozinha</td><td class="goal-cell">Compartilhamento</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">UGC / comunidade</span></td><td>Compilado semanal de clientes</td><td class="goal-cell">Comunidade</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 3</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">LÉXICO</span></td><td>Reveal rápido do drink da semana</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Diferencial</span></td><td>Bastidor do estúdio sonoro / linha do tempo do line-up de DJs do ano</td><td class="goal-cell">Diferenciação</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Teaser do line-up</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Aftermovie da noite</td><td class="goal-cell">Compartilhamento</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Guia</span></td><td>"Como reservar mesa pro Réveillon" — antecipa dezembro, save-bait</td><td class="goal-cell">Salvamento</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 4 — Black Friday (27/11)</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Reserva antecipada</span></td><td>"Últimos dias pra garantir sua mesa antes da alta temporada" — dezembro/Réveillon</td><td class="goal-cell">Conversão</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">POV Balcão</span></td><td>Bastidor da preparação pra Black Week</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Black Friday do Ares</span></td><td>Condição especial de reserva antecipada pra dezembro/Réveillon — único post do mês com oferta direta</td><td class="goal-cell">Conversão</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Aftermovie da noite</td><td class="goal-cell">Compartilhamento</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Fechamento do mês</span></td><td>"O que rolou em novembro" — recap + prévia de dezembro (Réveillon chegando)</td><td class="goal-cell">Retenção</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div><!-- /month-panel nov -->
+
+    <div class="month-panel" data-month="dez" style="display:none;">
+    <div class="week-block">
+      <div class="week-title">Semana 1</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Abertura do mês</span></td><td>"Dezembro é mês de fechar o ano no Ares" — teaser da programação</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">LÉXICO</span></td><td>Edição especial de drinks de festa</td><td class="goal-cell">Salvamento</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">POV Balcão</span></td><td>Macro/ASMR do drink de festa</td><td class="goal-cell">Alcance / retenção</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Teaser do line-up da noite</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Ares Sessions</span></td><td>Recap fotográfico da pista</td><td class="goal-cell">Compartilhamento</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 2 — retrospectiva do ano</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Retrospectiva — parte 1</span></td><td>Melhores momentos do LÉXICO e Who's Cooking no ano</td><td class="goal-cell">Compartilhamento / nostalgia</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Who's Cooking</span></td><td>Teaser da última edição do ano</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">POV Balcão</span></td><td>Making-of do drink de festa</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Who's Cooking</span></td><td>Recap da última edição do ano</td><td class="goal-cell">Compartilhamento</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">UGC / comunidade</span></td><td>Compilado do ano — clientes marcando o perfil</td><td class="goal-cell">Comunidade</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 3 — semana de Natal</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Programação de Natal</span></td><td>Teaser da ceia/menu especial de fim de ano</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Menu especial</span></td><td>Cardápio de fim de ano — pratos e drinks da época</td><td class="goal-cell">Salvamento</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Teaser da Sessions especial de Natal</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Ares Sessions</span></td><td>Aftermovie da noite de Natal</td><td class="goal-cell">Compartilhamento</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Retrospectiva — parte 2</span></td><td>Melhores momentos das Sessions e do aniversário de 3 anos</td><td class="goal-cell">Compartilhamento / nostalgia</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="week-block">
+      <div class="week-title">Semana 4 — Réveillon (31/12)</div>
+      <div class="cal-scroll">
+        <table class="cal">
+          <thead><tr><th>Dia</th><th>Formato</th><th>Gancho</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td class="day-cell">Qua</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Contagem regressiva</span></td><td>Reveal do line-up de Réveillon</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Qui</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Guia Réveillon</span></td><td>"O que esperar da noite" — dress code, horário, menu especial (save-bait + hype)</td><td class="goal-cell">Salvamento</td></tr>
+            <tr><td class="day-cell">Sex</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Últimas vagas</span></td><td>Teaser final — últimas mesas disponíveis pra virada</td><td class="goal-cell">Conversão</td></tr>
+            <tr><td class="day-cell">Sáb</td><td><span class="fmt-pill reel">Reels</span><span class="pillar-tag">Bastidor</span></td><td>Montagem e preparação especial pra noite de virada</td><td class="goal-cell">Alcance</td></tr>
+            <tr><td class="day-cell">Dom</td><td><span class="fmt-pill carrossel">Carrossel</span><span class="pillar-tag">Fechamento do ano</span></td><td>"Foi assim que fechamos 2026" — recap da virada + teaser do que vem em 2027</td><td class="goal-cell">Retenção</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div><!-- /month-panel dez -->
   </section>
 
   <section>
@@ -480,5 +715,42 @@
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var months = [
+    {key:'set', name:'setembro', desc:"4 semanas, ritmo de 5 posts/semana (hoje o perfil publica ~2–3x). Cada linha mistura pilar existente com os formatos novos, sempre balanceando alcance (reels) com aprofundamento (carrossel)."},
+    {key:'out', name:'outubro', desc:"O Ares completa 3 anos em 14/10 — o mês inteiro é construído em cima da contagem regressiva e da festa de aniversário, sem soltar os pilares fixos (LÉXICO, Sessions, Who's Cooking)."},
+    {key:'nov', name:'novembro', desc:"Início do calor puxa cardápio mais leve no LÉXICO. Última semana usa a Black Friday (27/11) pra converter reserva antecipada de Réveillon — único mês com post de oferta direta."},
+    {key:'dez', name:'dezembro', desc:"Mês de retrospectiva e Réveillon. Metade do conteúdo olha pra trás (melhores momentos do ano), a outra metade constrói a virada de 31/12."}
+  ];
+  var idx = 0;
+  var titleEl = document.getElementById('cal-month-name');
+  var descEl = document.getElementById('cal-month-desc');
+  var dotsEl = document.getElementById('cal-dots');
+  var arrowEl = document.getElementById('cal-arrow');
+  var panels = document.querySelectorAll('.month-panel');
+
+  function render(){
+    var m = months[idx];
+    titleEl.textContent = m.name;
+    descEl.textContent = m.desc;
+    panels.forEach(function(p){ p.style.display = (p.getAttribute('data-month') === m.key) ? '' : 'none'; });
+    dotsEl.querySelectorAll('.dot').forEach(function(d){
+      d.classList.toggle('active', d.getAttribute('data-month') === m.key);
+    });
+  }
+
+  arrowEl.addEventListener('click', function(){
+    idx = (idx + 1) % months.length;
+    render();
+  });
+  dotsEl.querySelectorAll('.dot').forEach(function(d, i){
+    d.addEventListener('click', function(){ idx = i; render(); });
+  });
+
+  render();
+})();
+</script>
 </body>
 </html>
