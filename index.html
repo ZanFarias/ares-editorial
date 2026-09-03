@@ -206,6 +206,23 @@
   .pillar-tag{ font-size:11px; color:var(--text-faint); display:block; margin-top:4px; }
   .goal-cell{ color:var(--text-muted); font-size:12.5px; }
 
+  /* ---- Ranking (top 5) ---- */
+  .rank-list{ display:flex; flex-direction:column; gap:10px; }
+  .rank-item{
+    display:grid; grid-template-columns:36px 1fr auto; gap:16px; align-items:center;
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    padding:14px 16px; box-shadow:var(--shadow);
+  }
+  @media (max-width:640px){ .rank-item{ grid-template-columns:28px 1fr; } .rank-stats{ grid-column:1/-1; margin-top:8px; flex-wrap:wrap; } }
+  .rank-num{ font-family:'Fraunces', serif; font-style:italic; font-size:24px; color:var(--gold-bright); }
+  .rank-body{ display:flex; flex-direction:column; gap:3px; min-width:0; }
+  .rank-title{ font-weight:600; font-size:14px; color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .rank-title a{ color:inherit; text-decoration:none; }
+  .rank-title a:hover{ color:var(--gold-bright); }
+  .rank-meta{ font-size:12px; color:var(--text-faint); }
+  .rank-stats{ display:flex; gap:16px; font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-muted); white-space:nowrap; }
+  .rank-stats b{ color:var(--text); font-weight:600; }
+
   /* ---- Metrics ---- */
   .metrics-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
   @media (max-width:760px){ .metrics-grid{ grid-template-columns:repeat(2,1fr); } }
@@ -860,6 +877,106 @@
       <div class="bar-row"><span class="m-label">Set*</span><div class="bar-track"><div class="bar-fill" style="width:28.2%"></div></div><span class="bar-val">51,0</span></div>
     </div>
     <p style="font-size:12px; color:var(--text-faint); margin-top:14px;">*Setembro parcial — só 3 dias de mês, 1 post publicado até a data. Barras escaladas pela média de curtidas por post, mês a mês.</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Top 5 — posts orgânicos</h2>
+      <p>Ranqueado por curtidas, dos 94 posts do perfil (últimos 12 meses com dado disponível na API).</p>
+    </div>
+    <div class="rank-list">
+      <div class="rank-item">
+        <span class="rank-num">1</span>
+        <div class="rank-body">
+          <span class="rank-title"><a href="https://www.instagram.com/p/DQkeLp5jmX8/" target="_blank" rel="noopener">"Family and friends make great times." — 02/11/2025</a></span>
+          <span class="rank-meta">Carrossel · o post mais simples da lista, sem gancho nenhum</span>
+        </div>
+        <div class="rank-stats"><span><b>633</b> curtidas</span><span><b>27</b> coment.</span><span><b>74</b> compart.</span><span><b>12.703</b> alcance</span></div>
+      </div>
+      <div class="rank-item">
+        <span class="rank-num">2</span>
+        <div class="rank-body">
+          <span class="rank-title"><a href="https://www.instagram.com/p/DQxOL_Zjgaw/" target="_blank" rel="noopener">"Regô invade Ares" — 07/11/2025</a></span>
+          <span class="rank-meta">Carrossel · anúncio do guest bartender Luiz Felippe Mascella (Regô/Terê, SP)</span>
+        </div>
+        <div class="rank-stats"><span><b>320</b> curtidas</span><span><b>20</b> coment.</span><span><b>53</b> compart.</span><span><b>8.335</b> alcance</span></div>
+      </div>
+      <div class="rank-item">
+        <span class="rank-num">3</span>
+        <div class="rank-body">
+          <span class="rank-title"><a href="https://www.instagram.com/p/DRdXHgLDv3p/" target="_blank" rel="noopener">"Regô respirou novos Ares" — 25/11/2025</a></span>
+          <span class="rank-meta">Carrossel · recap do mesmo guest bartender, uma semana depois</span>
+        </div>
+        <div class="rank-stats"><span><b>271</b> curtidas</span><span><b>14</b> coment.</span><span><b>42</b> compart.</span><span><b>7.710</b> alcance</span></div>
+      </div>
+      <div class="rank-item">
+        <span class="rank-num">4</span>
+        <div class="rank-body">
+          <span class="rank-title"><a href="https://www.instagram.com/p/DPy2hRAjuvs/" target="_blank" rel="noopener">"Dois anos de Ares" — 14/10/2025</a></span>
+          <span class="rank-meta">Carrossel · aniversário + inauguração do estúdio sonoro</span>
+        </div>
+        <div class="rank-stats"><span><b>262</b> curtidas</span><span><b>29</b> coment.</span><span><b>59</b> compart.</span><span><b>7.692</b> alcance</span></div>
+      </div>
+      <div class="rank-item">
+        <span class="rank-num">5</span>
+        <div class="rank-body">
+          <span class="rank-title"><a href="https://www.instagram.com/p/DSDtaerjpjz/" target="_blank" rel="noopener">"Who's Cooking 001, com @andrelodii" — 09/12/2025</a></span>
+          <span class="rank-meta">Carrossel · estreia da série de chef convidado</span>
+        </div>
+        <div class="rank-stats"><span><b>229</b> curtidas</span><span><b>8</b> coment.</span><span><b>40</b> compart.</span><span><b>9.048</b> alcance</span></div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--text-faint); margin-top:14px;">4 dos 5 melhores posts são sobre <b style="color:var(--text-muted);">gente</b> (guest bartender, aniversário, chef convidado), não sobre drink ou ambiente sozinho — reforça o pilar de bastidor/comunidade que já tá no calendário editorial acima. Nenhum Reels aparece no top 5 por curtidas — os Reels do perfil têm mais visualização, mas menos curtida por post que os melhores carrosséis.</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Top 5 — anúncios (Ares BM 2)</h2>
+      <p>Ranqueado pelo número de conversas de WhatsApp/Instagram geradas, 2026 até agora — é a conversão real dessa conta.</p>
+    </div>
+    <div class="rank-list">
+      <div class="rank-item">
+        <span class="rank-num">1</span>
+        <div class="rank-body">
+          <span class="rank-title">COPA - Dark Post</span>
+          <span class="rank-meta">[ARES 02] ENG | MSG IG - VITALÍCIO</span>
+        </div>
+        <div class="rank-stats"><span><b>80</b> conversas</span><span>CPL <b>R$18,75</b></span><span>CTR <b>0,76%</b></span><span>R$1.500,27 gasto</span></div>
+      </div>
+      <div class="rank-item">
+        <span class="rank-num">2</span>
+        <div class="rank-body">
+          <span class="rank-title">Reels Copa Ares - Fase de Grupos</span>
+          <span class="rank-meta">[ARES 02] ENG | MSG IG - VITALÍCIO</span>
+        </div>
+        <div class="rank-stats"><span><b>47</b> conversas</span><span>CPL <b>R$13,21</b></span><span>CTR <b>0,88%</b></span><span>R$621,07 gasto</span></div>
+      </div>
+      <div class="rank-item">
+        <span class="rank-num">3</span>
+        <div class="rank-body">
+          <span class="rank-title">Festa Orb</span>
+          <span class="rank-meta">[ARES 02] ENG | MSG IG - VITALÍCIO</span>
+        </div>
+        <div class="rank-stats"><span><b>45</b> conversas</span><span>CPL <b>R$11,07</b></span><span>CTR <b>1,00%</b></span><span>R$498,01 gasto</span></div>
+      </div>
+      <div class="rank-item">
+        <span class="rank-num">4</span>
+        <div class="rank-body">
+          <span class="rank-title">Whos Cooking 2</span>
+          <span class="rank-meta">[ARES 02] ENG | MSG IG - VITALÍCIO</span>
+        </div>
+        <div class="rank-stats"><span><b>41</b> conversas</span><span>CPL <b>R$28,25</b></span><span>CTR <b>0,67%</b></span><span>R$1.158,33 gasto</span></div>
+      </div>
+      <div class="rank-item">
+        <span class="rank-num">5</span>
+        <div class="rank-body">
+          <span class="rank-title">Agenda Semanal - 05 - 10/05</span>
+          <span class="rank-meta">[ARES 02] ENG | MSG IG - VITALÍCIO</span>
+        </div>
+        <div class="rank-stats"><span><b>33</b> conversas</span><span>CPL <b>R$29,34</b></span><span>CTR <b>0,52%</b></span><span>R$968,38 gasto</span></div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--text-faint); margin-top:14px;">Os 3 primeiros são conteúdo de evento pontual (Copa, festa) rodando dentro da mesma campanha evergreen — não são campanhas feitas sob medida, é o mesmo público vitalício reagindo melhor a gancho de evento do que a peça institucional. Vale testar o mesmo padrão nos próximos eventos (aniversário, Réveillon) do calendário editorial.</p>
   </section>
 
   <footer>
