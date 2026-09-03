@@ -125,8 +125,9 @@
   .callout .body p{ font-size:14.5px; color:var(--text-muted); margin-top:5px; }
 
   /* ---- Framework ---- */
-  .framework-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-  @media (max-width:640px){ .framework-grid{ grid-template-columns:1fr; } }
+  .framework-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:860px){ .framework-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .framework-grid{ grid-template-columns:1fr; } }
   .fw-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:26px; }
   .fw-tag{
     display:inline-block; font-family:'JetBrains Mono', monospace; font-size:11px;
@@ -267,7 +268,7 @@
       <span class="mark-badge">A</span>
       <span class="mark-word">A R E S</span>
     </div>
-    <h1 class="title">Estratégia de conteúdo pra <em>setembro</em></h1>
+    <h1 class="title">Estratégia de <em>Conteúdo</em> Ares</h1>
     <p class="hero-sub">Calendário editorial mesclando carrossel e reels, construído em cima do que já funciona no perfil (LÉXICO, ARES SESSIONS, WHO'S COOKING) e de padrões comprovados de alcance no segmento de coquetelaria de alto padrão.</p>
     <div class="hero-meta">
       <div><span class="v">80 posts</span><span class="l">set → dez, 4 meses</span></div>
@@ -313,8 +314,8 @@
 
   <section>
     <div class="section-head">
-      <h2>Reels e carrossel não competem — cada um puxa uma alavanca</h2>
-      <p>O algoritmo trata os dois formatos de forma diferente. Usar cada um pro que ele faz de melhor é o que separa "postar bastante" de "crescer".</p>
+      <h2>Reels, carrossel e Story não competem — cada um puxa uma alavanca</h2>
+      <p>O algoritmo trata os três formatos de forma diferente. Usar cada um pro que ele faz de melhor é o que separa "postar bastante" de "crescer".</p>
     </div>
     <div class="framework-grid">
       <div class="fw-card">
@@ -337,6 +338,17 @@
           <li>Conteúdo "utilidade" (guia, glossário, harmonização) — o que mais gera salvamento</li>
           <li>Fechar com CTA de reserva, não só estética</li>
           <li>Nunca mais de 8 cards — queda de conclusão depois disso</li>
+        </ul>
+      </div>
+      <div class="fw-card">
+        <span class="fw-tag">Story</span>
+        <h3>Complemento, não substituto</h3>
+        <p>Não entra no calendário de feed — é o que roda por trás dele, todo dia. Pra que serve:</p>
+        <ul class="fw-list">
+          <li>Bastidor em tempo real, sem compromisso de qualidade de feed (24h, some sozinho)</li>
+          <li>Enquete/caixinha de pergunta pra testar drink ou ideia de evento antes de virar post</li>
+          <li>CTA direto de reserva no dia do evento — "últimas mesas hoje"</li>
+          <li>Alimenta os Destaques fixos do perfil (hoje só "Agenda" e "Menu" — dá pra abrir mais)</li>
         </ul>
       </div>
     </div>
@@ -648,6 +660,51 @@
       </div>
     </div>
     </div><!-- /month-panel dez -->
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Estratégia de mídia paga — Meta Ads</h2>
+      <p>O orgânico traz alcance de graça quando o formato acerta. A mídia paga entra pra garantir que isso não dependa só do algoritmo — e pra transformar quem viu em quem reservou mesa.</p>
+    </div>
+
+    <div class="callout" style="margin-bottom:26px;">
+      <span class="ic">!</span>
+      <div class="body">
+        <b>Antes de colocar verba nova:</b>
+        <p>Esta página foi construída em cima dos dados orgânicos do Instagram e do site. Não puxei o histórico de campanhas da conta de anúncio própria do Ares Bar de Coquetéis (é uma conta separada da "Ares BM 2", usada nas campanhas antigas de Sessions/Agenda Semanal) — vale conferir o que já rodou nela antes de definir orçamento novo, pra não repetir teste que já foi feito.</p>
+      </div>
+    </div>
+
+    <div class="pillar-grid" style="margin-bottom:26px;">
+      <div class="pillar">
+        <div class="pillar-name">Alcance</div>
+        <p>Impulsiona os próprios Reels que já performaram bem no orgânico (dark post) em vez de criativo feito só pra ads. Público frio: interesse em coquetelaria/vida noturna/gastronomia, 21–40 anos, bairros nobres de Goiânia — mesma composição que já funcionou nas campanhas antigas do Ares.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-name">Consideração</div>
+        <p>Tráfego pro perfil ou pro site nas semanas de pico do calendário (Sessions, Who's Cooking, aniversário, Réveillon). Objetivo é engajamento/tráfego, não venda direta — ainda é fase de descoberta.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-name">Conversão</div>
+        <p>Click-to-WhatsApp direto pra reserva, ativado só nas semanas de evento (mesmo mecanismo já usado na campanha "Agenda Semanal"). É a única camada com CTA de venda explícito — nas outras, CTA explícito derruba desempenho.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-name">Retenção</div>
+        <p>Remarketing pra quem visitou o site ou engajou no Instagram/Facebook mas não reservou. Público quente — mesmo mecanismo de "Seguidores + MegaMaster" já usado nas campanhas Nocapz, adaptado pro perfil geral do Ares.</p>
+      </div>
+    </div>
+
+    <div class="case-list">
+      <div class="case">
+        <div class="case-label">Verba</div>
+        <div class="case-body"><b>Sem número fixo aqui — depende do que a conta de anúncio própria já mostrar de histórico.</b><p>Referência de distribuição por camada: maior parte em Alcance (público frio é o que mais precisa de mídia paga pra crescer), fatia média em Retenção (público quente converte mais barato), fatia menor e pontual em Conversão (só liga nas semanas de evento do calendário acima).</p></div>
+      </div>
+      <div class="case">
+        <div class="case-label">Criativo</div>
+        <div class="case-body"><b>Regra simples: o que já provou tração orgânica vira anúncio primeiro.</b><p>Os números de 2026 abaixo mostram que Reels sozinho não garante melhor média — vale testar o mesmo em ads: promover o formato (reels ou carrossel) que já rendeu mais naquele mês específico, não sempre o mesmo.</p></div>
+      </div>
+    </div>
   </section>
 
   <section>
